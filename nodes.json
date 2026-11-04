@@ -4,25 +4,16 @@
   "plan": "trial→free",
   "uuid": "3eb905bc-a18a-4b40-8578-eeade9d4c67a",
   "ws_path": "/tk-rail",
-  "updated_at": "2026-11-05T06:30:00+08:00",
+  "updated_at": "2026-11-05T07:05:00+08:00",
   "nodes": [
     {
       "name": "Railway-美国-加州",
-      "domain": "railway-production-5618.up.railway.app",
-      "region": "sfo",
-      "port": 443,
-      "tls": true,
-      "network": "ws",
-      "note": "same service, two entry domains"
-    },
-    {
-      "name": "Railway-美国-加州-自定义域名",
       "domain": "us.1983723.xyz",
       "region": "sfo",
       "port": 443,
       "tls": true,
       "network": "ws",
-      "note": "same service, two entry domains"
+      "note": "custom domain fronting Railway; original *.up.railway.app kept on service but not published"
     }
   ],
   "custom_domain": {
