@@ -1,8 +1,8 @@
 # =====================================================================
-# Clash / mihomo / FlClash 订阅 —— 双节点（国内分流）
-# 更新：2026-11-05 07:5x CST
+# Clash / mihomo / FlClash 订阅 —— 三节点（国内分流）
+# 更新：2026-11-05 08:1x CST
 # 【Railway 额度】$5.00（Trial 至 2026-12-05）→ 之后 Free $1/月，固定 ≈$0.60/月 + 流量 $0.05/GB
-# 节点：Railway（加州/自定义域前端） + InstaBox（AWS 俄勒冈，走 node.1983723.xyz 隧道）
+# 节点：Railway 加州（自定义域） + InstaBox 俄勒冈 ×2（AWS us-west-2）
 # =====================================================================
 mixed-port: 7890
 allow-lan: false
@@ -76,6 +76,21 @@ proxies:
       path: "/ws-ac815639"
       headers:
         Host: node.1983723.xyz
+  - name: "InstaBox-US-Oregon"
+    type: vless
+    server: 8080-agqvzgtcsbootoyr2puuna77w4.instabox.tech
+    port: 443
+    uuid: 04f37755-ef93-461e-a916-ac6d1600c5d2
+    udp: false
+    tls: true
+    skip-cert-verify: true
+    servername: 8080-agqvzgtcsbootoyr2puuna77w4.instabox.tech
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/ws-ac815639"
+      headers:
+        Host: 8080-agqvzgtcsbootoyr2puuna77w4.instabox.tech
 
 proxy-groups:
   - name: "节点选择"
@@ -83,6 +98,7 @@ proxy-groups:
     proxies:
       - "Railway-美国-加州"
       - "InstaBox-US-Oregon-CDN"
+      - "InstaBox-US-Oregon"
       - DIRECT
   - name: "国内直连"
     type: select
