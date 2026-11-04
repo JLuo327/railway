@@ -10,7 +10,21 @@ Railway 自建的 **单节点** VLESS + WebSocket + TLS（国内分流），按 
 |---|---|---|
 | Railway-美国-加州 | us-west2 (sfo) | railway-production-5618.up.railway.app |
 
-## 订阅文件（没有 URL 了，直接导入文件）
+## 订阅链接（GitHub Gist，secret gist，固定不变）
+
+以后新增/更换节点只改 `sub/` 再跑 `./publish.sh`，**下面这些 URL 永远不变**：
+
+| 客户端 | 链接 |
+|---|---|
+| Clash / mihomo / FlClash | `https://gist.githubusercontent.com/JLuo327/c83ad94148cad89204198e1b1f689f85/raw/clash.yaml` |
+| Quantumult X | `https://gist.githubusercontent.com/JLuo327/c83ad94148cad89204198e1b1f689f85/raw/qx.conf` |
+| Shadowrocket | `https://gist.githubusercontent.com/JLuo327/c83ad94148cad89204198e1b1f689f85/raw/shadowrocket.conf` |
+| 任意客户端（节点列表） | `https://gist.githubusercontent.com/JLuo327/c83ad94148cad89204198e1b1f689f85/raw/vless.txt` |
+| 同上（base64） | `https://gist.githubusercontent.com/JLuo327/c83ad94148cad89204198e1b1f689f85/raw/vless-base64.txt` |
+
+> 是 **secret gist**（不列在个人主页、不进 GitHub 代码搜索），但拿到链接的人就能读——和所有订阅 URL 一样，链接即凭据。
+
+## 备用：没有 URL 时直接导入文件
 
 Cloudflare 订阅端点已按要求全部删除，改用本地/仓库文件导入：
 
