@@ -1,4 +1,4 @@
-# railway-xray-nodes
+# railway
 
 Railway 自建的 **单节点** VLESS + WebSocket + TLS（国内分流），按 Railway Free（$1/月额度）方案精简。
 
@@ -16,11 +16,11 @@ Railway 自建的 **单节点** VLESS + WebSocket + TLS（国内分流），按 
 
 | 客户端 | 链接 |
 |---|---|
-| Clash / mihomo / FlClash | `https://raw.githubusercontent.com/JLuo327/railway-xray-nodes/main/sub/clash.yaml` |
-| Quantumult X | `https://raw.githubusercontent.com/JLuo327/railway-xray-nodes/main/sub/qx.conf` |
-| Shadowrocket | `https://raw.githubusercontent.com/JLuo327/railway-xray-nodes/main/sub/shadowrocket.conf` |
-| 任意客户端（节点列表） | `https://raw.githubusercontent.com/JLuo327/railway-xray-nodes/main/sub/vless.txt` |
-| 同上（base64） | `https://raw.githubusercontent.com/JLuo327/railway-xray-nodes/main/sub/vless-base64.txt` |
+| Clash / mihomo / FlClash | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/clash.yaml` |
+| Quantumult X | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/qx.conf` |
+| Shadowrocket | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/shadowrocket.conf` |
+| 任意客户端（节点列表） | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/vless.txt` |
+| 同上（base64） | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/vless-base64.txt` |
 
 > ⚠️ 本仓库是 **public**（raw 链接才能免登录访问）。内容含可直接使用的凭据：任何拿到链接的人都能用你的节点，GitHub 代码搜索也能搜到 `vless://`。被滥用就换 UUID（改四个服务的 `XRAY_CONFIG` + 这里的文件），或者把仓库改回 private（链接随即失效）。
 
