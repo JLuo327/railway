@@ -1,35 +1,34 @@
 {
-  "provider": "railway",
-  "project": "railway-xray",
+  "provider": "mixed",
+  "project": "railway + instabox",
   "plan": "trial→free",
-  "uuid": "3eb905bc-a18a-4b40-8578-eeade9d4c67a",
-  "ws_path": "/tk-rail",
-  "updated_at": "2026-11-05T07:55:00+08:00",
+  "updated_at": "2026-11-05T08:10:00+08:00",
   "nodes": [
     {
       "name": "Railway-美国-加州",
       "domain": "us.1983723.xyz",
       "uuid": "3eb905bc-a18a-4b40-8578-eeade9d4c67a",
       "ws_path": "/tk-rail",
-      "region": "sfo",
       "ip": "152.55.178.42",
-      "note": "datacenter (Railway/AWS)"
+      "type": "datacenter (Railway)"
     },
     {
       "name": "InstaBox-US-Oregon-CDN",
       "domain": "node.1983723.xyz",
       "uuid": "04f37755-ef93-461e-a916-ac6d1600c5d2",
       "ws_path": "/ws-ac815639",
-      "region": "AWS us-west-2",
       "ip": "35.90.32.199",
-      "note": "datacenter (AWS EC2)"
+      "type": "datacenter (AWS EC2 us-west-2)"
+    },
+    {
+      "name": "InstaBox-US-Oregon",
+      "domain": "8080-agqvzgtcsbootoyr2puuna77w4.instabox.tech",
+      "uuid": "04f37755-ef93-461e-a916-ac6d1600c5d2",
+      "ws_path": "/ws-ac815639",
+      "ip": "35.90.32.199",
+      "type": "datacenter (AWS EC2 us-west-2)"
     }
   ],
-  "custom_domain": {
-    "domain": "us.1983723.xyz",
-    "target": "ujybmwza.up.railway.app",
-    "cert": "Let's Encrypt"
-  },
   "limits": {
     "trial_credit_usd": 5.0,
     "free_credit_usd_month": 1.0,
