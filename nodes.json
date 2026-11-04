@@ -4,7 +4,7 @@
   "plan": "trial→free",
   "uuid": "3eb905bc-a18a-4b40-8578-eeade9d4c67a",
   "ws_path": "/tk-rail",
-  "updated_at": "2026-11-05T05:55:00+08:00",
+  "updated_at": "2026-11-05T06:30:00+08:00",
   "nodes": [
     {
       "name": "Railway-美国-加州",
@@ -12,15 +12,28 @@
       "region": "sfo",
       "port": 443,
       "tls": true,
-      "network": "ws"
+      "network": "ws",
+      "note": "same service, two entry domains"
+    },
+    {
+      "name": "Railway-美国-加州-自定义域名",
+      "domain": "us.1983723.xyz",
+      "region": "sfo",
+      "port": 443,
+      "tls": true,
+      "network": "ws",
+      "note": "same service, two entry domains"
     }
   ],
+  "custom_domain": {
+    "domain": "us.1983723.xyz",
+    "target": "ujybmwza.up.railway.app",
+    "cert": "Let's Encrypt"
+  },
   "limits": {
     "trial_credit_usd": 5.0,
-    "trial_days_left": 30,
     "free_credit_usd_month": 1.0,
     "est_fixed_usd_month": 0.6,
-    "egress_usd_per_gb": 0.05,
-    "est_free_traffic_gb": 8
+    "egress_usd_per_gb": 0.05
   }
 }

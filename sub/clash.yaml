@@ -1,11 +1,10 @@
 # =====================================================================
-# Clash / mihomo / FlClash 订阅 —— Railway 单节点 VLESS+WS+TLS（国内分流）
-# 更新：2026-11-05 05:5x CST（已按 Railway Free 方案精简为 1 个节点）
+# Clash / mihomo / FlClash 订阅 —— Railway 单服务双入口（国内分流）
+# 更新：2026-11-05 06:3x CST
 # 【当前剩余额度】$5.00（Trial，至 2026-12-05）→ 之后 Free 计划 $1/月
-# 【试用剩余时间】约 30 天
-# 【月成本估算】单节点固定 ≈ $0.60/月（内存 0.05GB×$10 + CPU 0.01×$20）
-#                + 流量 $0.05/GB；Free 的 $1 额度约可覆盖 8GB/月流量
-# 分流：GEOSITE,cn / GEOIP,CN → 国内直连；geolocation-!cn → 国外网站；其余 → 漏网之鱼
+# 【月成本估算】单服务固定 ≈ $0.60/月 + 流量 $0.05/GB（Free 额度约 8GB/月）
+# 两个节点是同一个服务：一个走 *.up.railway.app，一个走自定义域 us.1983723.xyz
+# 前者被宽带干扰时切后者即可
 # =====================================================================
 mixed-port: 7890
 allow-lan: false
@@ -66,12 +65,27 @@ proxies:
       path: "/tk-rail"
       headers:
         Host: railway-production-5618.up.railway.app
+  - name: "Railway-美国-加州-自定义域名"
+    type: vless
+    server: us.1983723.xyz
+    port: 443
+    uuid: 3eb905bc-a18a-4b40-8578-eeade9d4c67a
+    udp: true
+    tls: true
+    servername: us.1983723.xyz
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/tk-rail"
+      headers:
+        Host: us.1983723.xyz
 
 proxy-groups:
   - name: "节点选择"
     type: select
     proxies:
       - "Railway-美国-加州"
+      - "Railway-美国-加州-自定义域名"
       - DIRECT
   - name: "国内直连"
     type: select

@@ -9,6 +9,7 @@ Railway 自建的 **单节点** VLESS + WebSocket + TLS（国内分流），按 
 | 节点名 | 区域 | 域名 |
 |---|---|---|
 | Railway-美国-加州 | us-west2 (sfo) | railway-production-5618.up.railway.app |
+| Railway-美国-加州-自定义域名 | us-west2 (sfo) | us.1983723.xyz（同一服务，绕开对 railway.app 的干扰）|
 
 ## 订阅链接（本仓库 raw，固定不变）
 
