@@ -1,13 +1,12 @@
 # =====================================================================
-# Clash / mihomo / FlClash 订阅 —— Railway 自建 VLESS+WS+TLS，国内分流
-# 生成时间：2026-11-05 05:2x CST
-# 【当前剩余额度】$5.00（Railway Trial 赠送额度，已用 $0.00）
-# 【试用剩余时间】30 天（约 2026-12-05 到期，以 Railway 账单页为准）
-# 【一个月成本估算】固定 ≈ $2.40/月（内存 0.20GB×$10 + CPU 0.02×$20）
-#                    + 流量 $0.05/GB；轻度 30GB/月 ≈ $3.90/月
+# Clash / mihomo / FlClash 订阅 —— Railway 单节点 VLESS+WS+TLS（国内分流）
+# 更新：2026-11-05 05:5x CST（已按 Railway Free 方案精简为 1 个节点）
+# 【当前剩余额度】$5.00（Trial，至 2026-12-05）→ 之后 Free 计划 $1/月
+# 【试用剩余时间】约 30 天
+# 【月成本估算】单节点固定 ≈ $0.60/月（内存 0.05GB×$10 + CPU 0.01×$20）
+#                + 流量 $0.05/GB；Free 的 $1 额度约可覆盖 8GB/月流量
 # 分流：GEOSITE,cn / GEOIP,CN → 国内直连；geolocation-!cn → 国外网站；其余 → 漏网之鱼
 # =====================================================================
-
 mixed-port: 7890
 allow-lan: false
 mode: rule
@@ -36,15 +35,9 @@ dns:
   fake-ip-filter:
     - "*.lan"
     - "*.local"
+    - "localhost.ptlogin2.qq.com"
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
-    - "localhost.ptlogin2.qq.com"
-    - "+.srv.nintendo.net"
-    - "+.stun.playstation.net"
-    - "xbox.*.microsoft.com"
-    - "+.battlenet.com.cn"
-    - "+.wotgame.cn"
-    - "+.n.n.srv.nintendo.net"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
@@ -73,69 +66,13 @@ proxies:
       path: "/tk-rail"
       headers:
         Host: railway-production-5618.up.railway.app
-  - name: "Railway-美国-弗吉尼亚"
-    type: vless
-    server: railway-production-8861.up.railway.app
-    port: 443
-    uuid: 3eb905bc-a18a-4b40-8578-eeade9d4c67a
-    udp: true
-    tls: true
-    servername: railway-production-8861.up.railway.app
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: "/tk-rail"
-      headers:
-        Host: railway-production-8861.up.railway.app
-  - name: "Railway-荷兰-阿姆斯特丹"
-    type: vless
-    server: railway-production-fd5c.up.railway.app
-    port: 443
-    uuid: 3eb905bc-a18a-4b40-8578-eeade9d4c67a
-    udp: true
-    tls: true
-    servername: railway-production-fd5c.up.railway.app
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: "/tk-rail"
-      headers:
-        Host: railway-production-fd5c.up.railway.app
-  - name: "Railway-新加坡"
-    type: vless
-    server: railway-production-855a.up.railway.app
-    port: 443
-    uuid: 3eb905bc-a18a-4b40-8578-eeade9d4c67a
-    udp: true
-    tls: true
-    servername: railway-production-855a.up.railway.app
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: "/tk-rail"
-      headers:
-        Host: railway-production-855a.up.railway.app
 
 proxy-groups:
   - name: "节点选择"
     type: select
     proxies:
-      - "自动选择"
       - "Railway-美国-加州"
-      - "Railway-美国-弗吉尼亚"
-      - "Railway-荷兰-阿姆斯特丹"
-      - "Railway-新加坡"
       - DIRECT
-  - name: "自动选择"
-    type: url-test
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
-    tolerance: 50
-    proxies:
-      - "Railway-美国-加州"
-      - "Railway-美国-弗吉尼亚"
-      - "Railway-荷兰-阿姆斯特丹"
-      - "Railway-新加坡"
   - name: "国内直连"
     type: select
     proxies:
