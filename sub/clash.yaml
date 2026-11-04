@@ -1,9 +1,8 @@
 # =====================================================================
-# Clash / mihomo / FlClash 订阅 —— Railway 单节点（自定义域，国内分流）
-# 更新：2026-11-05 07:0x CST
-# 【当前剩余额度】$5.00（Trial，至 2026-12-05）→ 之后 Free 计划 $1/月
-# 【月成本估算】固定 ≈ $0.60/月 + 流量 $0.05/GB（Free 额度约 8GB/月）
-# 入口：us.1983723.xyz（自定义域，避开对 *.up.railway.app 的干扰）
+# Clash / mihomo / FlClash 订阅 —— 双节点（国内分流）
+# 更新：2026-11-05 07:5x CST
+# 【Railway 额度】$5.00（Trial 至 2026-12-05）→ 之后 Free $1/月，固定 ≈$0.60/月 + 流量 $0.05/GB
+# 节点：Railway（加州/自定义域前端） + InstaBox（AWS 俄勒冈，走 node.1983723.xyz 隧道）
 # =====================================================================
 mixed-port: 7890
 allow-lan: false
@@ -34,8 +33,6 @@ dns:
     - "*.lan"
     - "*.local"
     - "localhost.ptlogin2.qq.com"
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
@@ -64,12 +61,28 @@ proxies:
       path: "/tk-rail"
       headers:
         Host: us.1983723.xyz
+  - name: "InstaBox-US-Oregon-CDN"
+    type: vless
+    server: node.1983723.xyz
+    port: 443
+    uuid: 04f37755-ef93-461e-a916-ac6d1600c5d2
+    udp: false
+    tls: true
+    skip-cert-verify: true
+    servername: node.1983723.xyz
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/ws-ac815639"
+      headers:
+        Host: node.1983723.xyz
 
 proxy-groups:
   - name: "节点选择"
     type: select
     proxies:
       - "Railway-美国-加州"
+      - "InstaBox-US-Oregon-CDN"
       - DIRECT
   - name: "国内直连"
     type: select

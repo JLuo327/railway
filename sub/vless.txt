@@ -1,1 +1,2 @@
-vless://3eb905bc-a18a-4b40-8578-eeade9d4c67a@us.1983723.xyz:443?encryption=none&security=tls&sni=us.1983723.xyz&fp=chrome&alpn=http%2F1.1&type=ws&host=us.1983723.xyz&path=%2Ftk-rail#Railway-%E7%BE%8E%E5%9B%BD-%E5%8A%A0%E5%B7%9E
+vless://3eb905bc-a18a-4b40-8578-eeade9d4c67a@us.1983723.xyz:443?encryption=none&security=tls&sni=us.1983723.xyz&fp=chrome&type=ws&host=us.1983723.xyz&path=%2Ftk-rail#Railway-%E7%BE%8E%E5%9B%BD-%E5%8A%A0%E5%B7%9E
+vless://04f37755-ef93-461e-a916-ac6d1600c5d2@node.1983723.xyz:443?encryption=none&security=tls&sni=node.1983723.xyz&fp=chrome&type=ws&host=node.1983723.xyz&path=%2Fws-ac815639&allowInsecure=1#InstaBox-US-Oregon-CDN

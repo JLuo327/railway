@@ -4,16 +4,25 @@
   "plan": "trial→free",
   "uuid": "3eb905bc-a18a-4b40-8578-eeade9d4c67a",
   "ws_path": "/tk-rail",
-  "updated_at": "2026-11-05T07:05:00+08:00",
+  "updated_at": "2026-11-05T07:55:00+08:00",
   "nodes": [
     {
       "name": "Railway-美国-加州",
       "domain": "us.1983723.xyz",
+      "uuid": "3eb905bc-a18a-4b40-8578-eeade9d4c67a",
+      "ws_path": "/tk-rail",
       "region": "sfo",
-      "port": 443,
-      "tls": true,
-      "network": "ws",
-      "note": "custom domain fronting Railway; original *.up.railway.app kept on service but not published"
+      "ip": "152.55.178.42",
+      "note": "datacenter (Railway/AWS)"
+    },
+    {
+      "name": "InstaBox-US-Oregon-CDN",
+      "domain": "node.1983723.xyz",
+      "uuid": "04f37755-ef93-461e-a916-ac6d1600c5d2",
+      "ws_path": "/ws-ac815639",
+      "region": "AWS us-west-2",
+      "ip": "35.90.32.199",
+      "note": "datacenter (AWS EC2)"
     }
   ],
   "custom_domain": {
