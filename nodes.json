@@ -1,0 +1,51 @@
+{
+  "provider": "railway",
+  "project": "railway-xray",
+  "uuid": "3eb905bc-a18a-4b40-8578-eeade9d4c67a",
+  "ws_path": "/tk-rail",
+  "created_at": "2026-11-05T05:20:00+08:00",
+  "nodes": [
+    {
+      "name": "Railway-美国-加州",
+      "domain": "railway-production-5618.up.railway.app",
+      "region": "sfo",
+      "note": "美西 · 加州",
+      "port": 443,
+      "tls": true,
+      "network": "ws"
+    },
+    {
+      "name": "Railway-美国-弗吉尼亚",
+      "domain": "railway-production-8861.up.railway.app",
+      "region": "iad",
+      "note": "美东 · 弗吉尼亚",
+      "port": 443,
+      "tls": true,
+      "network": "ws"
+    },
+    {
+      "name": "Railway-荷兰-阿姆斯特丹",
+      "domain": "railway-production-fd5c.up.railway.app",
+      "region": "ams",
+      "note": "欧西 · 阿姆斯特丹",
+      "port": 443,
+      "tls": true,
+      "network": "ws"
+    },
+    {
+      "name": "Railway-新加坡",
+      "domain": "railway-production-855a.up.railway.app",
+      "region": "sin",
+      "note": "东南亚 · 新加坡",
+      "port": 443,
+      "tls": true,
+      "network": "ws"
+    }
+  ],
+  "limits": {
+    "trial_credit_usd": 5.0,
+    "trial_days_left": 30,
+    "est_fixed_usd_month": 2.4,
+    "egress_usd_per_gb": 0.05
+  }
+}
