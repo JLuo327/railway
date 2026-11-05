@@ -1,6 +1,6 @@
 # =====================================================================
 # Clash / mihomo / FlClash 订阅 —— ASCA + Railway（国内分流）
-# 更新：2026-11-06 00:50 CST（去掉 ASCA-vless；18080 现为 VMess）
+# 更新：2026-11-06 01:00 CST（ASCA-hy2 已在 VPS 删除，从订阅移除）
 # 【Railway 额度】$5.00（Trial 至 2026-12-05）→ 之后 Free $1/月，固定 ≈$0.60/月 + 流量 $0.05/GB
 # 【ASCA】ASCS Cloud · Onoway AB · 1 Gbps 对称光纤；纯 IPv6 出口，额度以 ASCS 面板为准
 # 注意：Railway 服务已于 2026-11-05 删除（us.1983723.xyz 已无 DNS），该条目暂留作参数备份
@@ -58,17 +58,6 @@ proxies:
     cipher: auto
     udp: true
 
-  # hy2：国内家宽实测 QUIC 握手被线路拦死，待蜂窝网络验证
-  - name: "ASCA-hy2"
-    type: hysteria2
-    server: "2600:70ff:b8c1:1::504"
-    port: 8443
-    password: "d9510f53a7496652d3a733537d72d333"
-    sni: "2600:70ff:b8c1:1::504"
-    skip-cert-verify: true
-    up: "30 Mbps"
-    down: "200 Mbps"
-
   - name: "Railway-美国-加州"
     type: vless
     server: us.1983723.xyz
@@ -89,7 +78,6 @@ proxy-groups:
     type: select
     proxies:
       - "ASCA-vmess"
-      - "ASCA-hy2"
       - "Railway-美国-加州"
       - DIRECT
   - name: "国内直连"
