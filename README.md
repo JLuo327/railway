@@ -17,10 +17,11 @@ ASCA 节点位于 ASCS Cloud（加拿大 Onoway, Alberta，1 Gbps 对称光纤�
 | Clash / mihomo / FlClash / Karing | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/clash.yaml` |
 | 任意客户端（节点列表） | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/vless.txt` |
 | 同上（base64） | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/vless-base64.txt` |
-| Quantumult X | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/qx.conf`（仅 Railway 单节点） |
+| Quantumult X | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/qx.conf`（ASCA-vless + Railway） |
 | Shadowrocket | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/shadowrocket.conf`（仅 Railway 单节点） |
 
-> QX / Shadowrocket 两份配置没有写入 ASCA：REALITY 与 hysteria2 在这两个客户端里的字段各家版本不一致，没有实测过的不写进去。要在这两个客户端用 ASCA，直接导 `vless.txt` 里的链接。
+> QX 从 1.5.5 起支持 Reality TLS：`obfs=over-tls` + `obfs-host=<SNI>` + `reality-base64-pubkey` + `reality-hex-shortid` + `vless-flow=xtls-rprx-vision`。官方 sample 明确要求 **Reality 不能开 TCP Fast Open**（iOS 26 指纹的 ClientHello 因 X25519MLKEM768 超过 1500 字节），所以 `fast-open=false`。若 QX 解析不了裸 IPv6 地址，把 server 改成 `[2600:70ff:b8c1:1::504]:443`。
+> Shadowrocket 那份仍未写入 ASCA：REALITY/hy2 的字段名没有实测依据，不写。
 
 > ⚠️ 本仓库是 **public**（raw 链接才能免登录访问）。内容含可直接使用的凭据：任何拿到链接的人都能用你的节点，GitHub 代码搜索也能搜到 `vless://`。被滥用就换服务端 UUID / hy2 密码并重推，或者把仓库改回 private（链接随即失效）。
 
