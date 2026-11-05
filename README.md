@@ -4,7 +4,7 @@
 
 | 节点名 | 协议 | 入口 | 状态 |
 |---|---|---|---|
-| ASCA-http | 明文 HTTP 代理（无认证） | `[2600:70ff:b8c1:1::504]:18080` | 在用；纯 IPv6 出口，IPv4-only 站点 502 |
+| ASCA-vmess | VMess over TCP（无 TLS） | `[2600:70ff:b8c1:1::504]:18080` | 在用；纯 IPv6 出口，IPv4-only 站点不通 |
 | ASCA-hy2 | Hysteria2 | `[2600:70ff:b8c1:1::504]:8443`，自签证书 | 国内家宽 QUIC 被拦，待蜂窝验证 |
 | Railway-美国-加州 | VLESS + WS + TLS | `us.1983723.xyz:443`，path `/tk-rail` | **已失效**：服务 2026-11-05 删除，域名无 DNS，条目仅留参数 |
 
@@ -17,10 +17,10 @@ ASCA 节点位于 ASCS Cloud（加拿大 Onoway, Alberta，1 Gbps 对称光纤�
 | Clash / mihomo / FlClash / Karing | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/clash.yaml` |
 | 任意客户端（节点列表） | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/vless.txt` |
 | 同上（base64） | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/vless-base64.txt` |
-| Quantumult X | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/qx.conf`（ASCA-http + Railway） |
+| Quantumult X | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/qx.conf`（ASCA-vmess + Railway） |
 | Shadowrocket | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/shadowrocket.conf`（仅 Railway 单节点） |
 
-> ASCA-http 是明文 HTTP 代理：**无认证**，谁拿到都能用；**只能访问 IPv6 可达的目标**，只有 A 记录的站点（github.com 等）会返回 502。QX 里写成 `http=<地址>:18080, tag=ASCA-http`；若解析不了裸 IPv6，改成 `[2600:70ff:b8c1:1::504]:18080`。
+> ASCA-vmess 是 VMess over TCP、**不带 TLS**（明文特征明显），端口 18080；**只能访问 IPv6 可达的目标**，只有 A 记录的站点（github.com 等）走不通。QX 里写成 `vmess=<地址>:18080, method=none, password=<uuid>, tag=ASCA-vmess`；若解析不了裸 IPv6，改成 `[2600:70ff:b8c1:1::504]:18080`。
 > Shadowrocket 那份仍未写入 ASCA：REALITY/hy2 的字段名没有实测依据，不写。
 
 > ⚠️ 本仓库是 **public**（raw 链接才能免登录访问）。内容含可直接使用的凭据：任何拿到链接的人都能用你的节点，GitHub 代码搜索也能搜到 `vless://`。被滥用就换服务端 UUID / hy2 密码并重推，或者把仓库改回 private（链接随即失效）。
@@ -46,8 +46,8 @@ ASCA 节点位于 ASCS Cloud（加拿大 Onoway, Alberta，1 Gbps 对称光纤�
 ## 文件
 
 ```
-sub/clash.yaml           ASCA-vless + ASCA-hy2 + Railway（国内分流，ipv6 已开）
-sub/vless.txt            3 条链接（ASCA-vless / ASCA-hy2 / Railway）
+sub/clash.yaml           ASCA-vmess + ASCA-hy2 + Railway（国内分流，ipv6 已开）
+sub/vless.txt            3 条链接（ASCA-vmess / ASCA-hy2 / Railway）
 sub/vless-base64.txt     base64 版
 sub/qx.conf              Quantumult X（仅 Railway 单节点）
 sub/shadowrocket.conf    Shadowrocket（仅 Railway 单节点）
