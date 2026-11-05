@@ -1,3 +1,3 @@
-proxy-http://[2600:70ff:b8c1:1::504]:18080#ASCA-http
+vmess://eyJ2IjoiMiIsInBzIjoiQVNDQS12bWVzcyIsImFkZCI6IjI2MDA6NzBmZjpiOGMxOjE6OjUwNCIsInBvcnQiOiIxODA4MCIsImlkIjoiMTBlYzJhMTEtNDAzNy00NTgxLWEyOTYtMGRmZDc5YWEzODMyIiwiYWlkIjoiMCIsInNjeSI6ImF1dG8iLCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsImhvc3QiOiIiLCJwYXRoIjoiIiwidGxzIjoiIiwic25pIjoiIiwiYWxwbiI6IiJ9
 hysteria2://d9510f53a7496652d3a733537d72d333@[2600:70ff:b8c1:1::504]:8443/?insecure=1#ASCA-hy2
 vless://3eb905bc-a18a-4b40-8578-eeade9d4c67a@us.1983723.xyz:443?encryption=none&security=tls&sni=us.1983723.xyz&fp=chrome&type=ws&host=us.1983723.xyz&path=%2Ftk-rail#Railway-%E7%BE%8E%E5%9B%BD-%E5%8A%A0%E5%B7%9E
