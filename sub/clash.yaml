@@ -1,9 +1,9 @@
 # =====================================================================
 # Clash / mihomo / FlClash 订阅 —— ASCA + Railway（国内分流）
-# 更新：2026-11-06 01:00 CST（ASCA-hy2 已在 VPS 删除，从订阅移除）
+# 更新：2026-11-06 02:25 CST（Railway 改为新加坡 VMess+WS；hy2 已删）
 # 【Railway 额度】$5.00（Trial 至 2026-12-05）→ 之后 Free $1/月，固定 ≈$0.60/月 + 流量 $0.05/GB
 # 【ASCA】ASCS Cloud · Onoway AB · 1 Gbps 对称光纤；纯 IPv6 出口，额度以 ASCS 面板为准
-# 注意：Railway 服务已于 2026-11-05 删除（us.1983723.xyz 已无 DNS），该条目暂留作参数备份
+# 注意：Railway 服务已迁到 sin（新加坡），走 railway.app 自带域名；自定义域 us.1983723.xyz 已无 DNS
 # =====================================================================
 mixed-port: 7890
 allow-lan: false
@@ -58,27 +58,29 @@ proxies:
     cipher: auto
     udp: true
 
-  - name: "Railway-美国-加州"
-    type: vless
-    server: us.1983723.xyz
+  - name: "Railway-新加坡"
+    type: vmess
+    server: railway-production-5618.up.railway.app
     port: 443
-    uuid: 3eb905bc-a18a-4b40-8578-eeade9d4c67a
+    uuid: 3e2356e6-6325-459d-b9bf-c05625042452
+    alterId: 0
+    cipher: auto
     udp: true
     tls: true
-    servername: us.1983723.xyz
+    servername: railway-production-5618.up.railway.app
     client-fingerprint: chrome
     network: ws
     ws-opts:
       path: "/tk-rail"
       headers:
-        Host: us.1983723.xyz
+        Host: railway-production-5618.up.railway.app
 
 proxy-groups:
   - name: "节点选择"
     type: select
     proxies:
       - "ASCA-vmess"
-      - "Railway-美国-加州"
+      - "Railway-新加坡"
       - DIRECT
   - name: "国内直连"
     type: select
