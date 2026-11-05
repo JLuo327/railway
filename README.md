@@ -4,7 +4,7 @@
 
 | 节点名 | 协议 | 入口 | 状态 |
 |---|---|---|---|
-| ASCA-vless | VLESS Reality（`xtls-rprx-vision`） | `[2600:70ff:b8c1:1::504]:443`，SNI `www.microsoft.com` | 在用；纯 IPv6 出口 |
+| ASCA-http | 明文 HTTP 代理（无认证） | `[2600:70ff:b8c1:1::504]:18080` | 在用；纯 IPv6 出口，IPv4-only 站点 502 |
 | ASCA-hy2 | Hysteria2 | `[2600:70ff:b8c1:1::504]:8443`，自签证书 | 国内家宽 QUIC 被拦，待蜂窝验证 |
 | Railway-美国-加州 | VLESS + WS + TLS | `us.1983723.xyz:443`，path `/tk-rail` | **已失效**：服务 2026-11-05 删除，域名无 DNS，条目仅留参数 |
 
@@ -17,10 +17,10 @@ ASCA 节点位于 ASCS Cloud（加拿大 Onoway, Alberta，1 Gbps 对称光纤�
 | Clash / mihomo / FlClash / Karing | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/clash.yaml` |
 | 任意客户端（节点列表） | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/vless.txt` |
 | 同上（base64） | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/vless-base64.txt` |
-| Quantumult X | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/qx.conf`（ASCA-vless + Railway） |
+| Quantumult X | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/qx.conf`（ASCA-http + Railway） |
 | Shadowrocket | `https://raw.githubusercontent.com/JLuo327/railway/main/sub/shadowrocket.conf`（仅 Railway 单节点） |
 
-> QX 从 1.5.5 起支持 Reality TLS：`obfs=over-tls` + `obfs-host=<SNI>` + `reality-base64-pubkey` + `reality-hex-shortid` + `vless-flow=xtls-rprx-vision`。官方 sample 明确要求 **Reality 不能开 TCP Fast Open**（iOS 26 指纹的 ClientHello 因 X25519MLKEM768 超过 1500 字节），所以 `fast-open=false`。若 QX 解析不了裸 IPv6 地址，把 server 改成 `[2600:70ff:b8c1:1::504]:443`。
+> ASCA-http 是明文 HTTP 代理：**无认证**，谁拿到都能用；**只能访问 IPv6 可达的目标**，只有 A 记录的站点（github.com 等）会返回 502。QX 里写成 `http=<地址>:18080, tag=ASCA-http`；若解析不了裸 IPv6，改成 `[2600:70ff:b8c1:1::504]:18080`。
 > Shadowrocket 那份仍未写入 ASCA：REALITY/hy2 的字段名没有实测依据，不写。
 
 > ⚠️ 本仓库是 **public**（raw 链接才能免登录访问）。内容含可直接使用的凭据：任何拿到链接的人都能用你的节点，GitHub 代码搜索也能搜到 `vless://`。被滥用就换服务端 UUID / hy2 密码并重推，或者把仓库改回 private（链接随即失效）。
