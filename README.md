@@ -5,7 +5,7 @@
 | 节点名 | 协议 | 入口 | 状态 |
 |---|---|---|---|
 | ASCA-vmess | VMess over TCP（无 TLS） | `[2600:70ff:b8c1:1::504]:18080` | 在用；纯 IPv6 出口，IPv4-only 站点不通 |
-| Railway-新加坡 | VMess + WS + TLS | `railway-production-5618.up.railway.app:443`，path `/tk-rail` | 在用；Railway sin 区域，出口 `152.55.188.95`（AS400940） |
+| Railway-新加坡 | VMess + WS + TLS | `us.1983723.xyz:443`，path `/tk-rail` | 在用；Railway sin 区域，出口 `152.55.188.95`（AS400940） |
 
 ASCA 节点位于 ASCS Cloud（加拿大 Onoway, Alberta，1 Gbps 对称光纤）。
 
